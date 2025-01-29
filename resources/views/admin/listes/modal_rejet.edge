@@ -1,0 +1,76 @@
+<style>
+    .modal-content {
+      border: 0;
+      border-radius: 0.75rem;
+    }
+    
+    .modal-header {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    
+    .input-group-static textarea {
+      border: 1px solid #d2d6da;
+      border-radius: 0.375rem;
+      padding: 0.625rem;
+    }
+    
+    .input-group-static textarea:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+    }
+</style>
+
+<div class="modal fade" id="ModalRejet" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-gradient-danger text-white">
+        <h5 class="modal-title fw-bold text-white">
+          <i class="fas fa-times-circle me-2"></i>
+          Motif du rejet
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form action="{{ route('admin.rejet') }}" method="POST" id="rejectForm">
+          {{ csrfField() }}
+          
+          <div class="form-group mb-4">
+            <label class="form-label fw-bold mb-2">
+              Message de rejet <span class="text-danger">*</span>
+            </label>
+            <div class="input-group input-group-static">
+              <textarea 
+                id="rejectMessage"
+                name="reject_message"
+                class="form-control"
+                rows="4"
+                placeholder="Veuillez expliquer la raison du rejet..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-text text-muted">
+              <i class="fas fa-info-circle me-1"></i>
+              Ce message sera envoyé à l'entreprise pour expliquer le rejet de sa demande
+            </div>
+          </div>
+
+          <input type="hidden" id="companyIds" name="company_id"/>
+        </form>
+      </div>
+
+      <div class="modal-footer border-top">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>
+          Annuler
+        </button>
+        <button type="submit" form="rejectForm" class="btn bg-gradient-danger">
+          <i class="fas fa-check me-2"></i>
+          Confirmer le rejet
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

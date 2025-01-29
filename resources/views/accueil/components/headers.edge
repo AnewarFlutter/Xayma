@@ -1,0 +1,47 @@
+@include('accueil/components/url_header')
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="{{ route('home') }}" class="logo d-flex align-items-center gap-3 text-decoration-none py-3">
+        <img src="{{ asset('assets/convention/logo/logo_ministere.png') }}" 
+             alt="Logo Ministère" 
+             class="img-fluid" 
+             style="max-height: 60px; width: auto;">
+
+        <div class="d-flex flex-column">
+            <h6 class="fw-bold m-0 position-relative" 
+                style="color: #2c4964; 
+                       text-transform: uppercase; 
+                       letter-spacing: 1.2px;
+                       font-size: 1.1rem;
+                       padding-bottom: 8px;">
+                Direction de l'Emploi
+                <span class="position-absolute bottom-0 start-0" 
+                      style="content: ''; 
+                             height: 2px; 
+                             width: 60%; 
+                             background: linear-gradient(90deg, #2c4964 0%, #4682B4 100%);"></span>
+            </h6>
+        </div>
+    </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ route('home') }}" class="active">Acceuil<br></a></li>
+
+          <li><a href="{{ route('home') }}#asavoir">Informations</a></li>
+          <li><a href="{{ route('home') }}#convention">Convention et avantages</a></li>
+          <li><a href="{{ route('home') }}#partenaire">Nos partenaires</a></li>
+          
+          
+
+          <li><a href="{{ route('contacts.index') }}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="{{ route('login.index') }}">Connexion</a>
+
+    </div>
+  </header>

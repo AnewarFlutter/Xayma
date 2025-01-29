@@ -1,0 +1,280 @@
+
+
+
+<body class="index-page">
+
+  @include('accueil/components/headers')
+ 
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{{ asset('assets/convention/img/image_c.jpg') }}" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">Direction de l’Emploi<br>Sous la supervison de Mr Babacar Sy</h2>
+        <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="{{ route('login.index') }}" class="btn-get-started">Connectez-vous</a>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="{{ asset('assets/convention/img/image_d.jpg') }}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3 id="convention">Présentation de la Convention</h3>
+            <p class="fst-italic">
+              Dans le cadre de la promotion active et régulière de l’emploi sur le marché, le Gouvernement du Sénégal,
+              en collaboration avec les partenaires du secteur privé, représentés par le Conseil National du Patronat
+              (CNP) et la Confédération Nationale des Employeurs du Sénégal (CNES), dénommés ci-après Organisations
+              d’employeurs, ont adopté et mis en œuvre la présente convention intitulée :
+
+              « Convention Nationale État-Employeurs Privés pour la Promotion de l’Emploi des Jeunes ».
+
+              Cette initiative vise à renforcer les opportunités d’emploi des jeunes à travers des mesures concrètes et
+              des mécanismes adaptés.
+            </p>
+
+            <h4>Objectifs de la Convention</h4>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Favoriser l’intégration des jeunes dans le marché du
+                  travail.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Stimuler la croissance économique par une main-d’œuvre
+                  qualifiée.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Encourager l’innovation et l’entrepreneuriat au
+                  Sénégal.</span></li>
+            </ul>
+            <a href="{{ route('home') }}" class="read-more"><span>Connectez-vous</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+    <!-- Courses Section -->
+    <section class="courses section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 id="asavoir">À savoir</h2>
+        <p>Informations</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="course-item">
+              <img src="{{ asset('assets/convention/img/image_a.jpg') }}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <h3><a href="course-details.html">Réunion de validation des TDR à la MTERI</a></h3>
+                <p class="description">Une séance de travail avec trois responsables vêtus de tenues traditionnelles
+                  assis à une table de conférence, avec des documents et des bouteilles d'eau devant eux. La réunion se
+                  déroule dans une salle aux murs jaunes.</p>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="course-item">
+              <img src="{{ asset('assets/convention/img/image_b.jpg') }}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <h3><a href="course-details.html">Présentation des thématiques de la conférence sociale</a></h3>
+                <p class="description">Un intervenant devant un grand écran projetant les différentes tables rondes de
+                  la conférence, notamment sur les migrations d'emplois, le numérique et l'entrepreneuriat. La
+                  présentation se fait dans une salle de réunion équipée d'un matériel audiovisuel moderne</p>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
+            data-aos-delay="300">
+            <div class="course-item">
+              <img src="{{ asset('assets/convention/img/image_d.jpg') }}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <h3><a href="course-details.html">Cérémonie de passation de service à la Direction de l'Emploi</a></h3>
+                <p class="description">Une séance de passation de service où l'on voit un intervenant en boubou blanc
+                  s'adressant à l'assistance dans une salle moderne avec des cloisons vitrées. Plusieurs personnes sont
+                  présentes pour assister à cette transition officielle entre les directeurs.
+
+                </p>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Courses Section -->
+
+
+
+
+
+    <!-- Courses Section -->
+    <section id="why-us" class="section why-us py-5">
+      <div class="container">
+        <div class="row text-center mb-4">
+          <div class="col-12">
+            <h2 class="fw-bold">Composantes de la Convention</h2>
+            <p class="lead">La convention s'articule autour de plusieurs volets essentiels</p>
+          </div>
+        </div>
+    
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <div class="mb-3">
+                  <i class="bi bi-clipboard-data fs-1 text-success"></i>
+                </div>
+                <h4 class="card-title mb-3">Contrat de stage</h4>
+                <p class="card-text">
+                  Stages d'apprentissage, d'incubation et d'adaptation professionnelle permettant aux jeunes d'acquérir une expérience pratique.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <div class="mb-3">
+                  <i class="bi bi-gem fs-1 text-success"></i>
+                </div>
+                <h4 class="card-title mb-3">Contrat de solidarité</h4>
+                <p class="card-text">
+                  Un dispositif favorisant l'intégration des jeunes dans le milieu professionnel grâce à un accompagnement ciblé.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <div class="mb-3">
+                  <i class="bi bi-briefcase fs-1 text-success"></i>
+                </div>
+                <h4 class="card-title mb-3">Embauche</h4>
+                <p class="card-text">
+                  Facilitation et promotion de l'embauche des jeunes dans les entreprises privées avec des mesures incitatives.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <div class="mb-3">
+                  <i class="bi bi-rocket-takeoff fs-1 text-success"></i>
+                </div>
+                <h4 class="card-title mb-3">Contrat d'essaimage</h4>
+                <p class="card-text">
+                  Soutien à la création et au développement d'initiatives entrepreneuriales portées par les jeunes.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <div class="mb-3">
+                  <i class="bi bi-building fs-1 text-success"></i>
+                </div>
+                <h4 class="card-title mb-3">Contrat de financement des ressources humaines des PME</h4>
+                <p class="card-text">
+                  Appui spécifique aux petites et moyennes entreprises pour l'investissement dans leurs ressources humaines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Trainers Index Section -->
+    <section id="trainers-index" class="section trainers-index">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 id="partenaire">section</h2>
+        <p>Nos partenaires</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{ asset('assets/convention/img/Image_part_a.jpg') }}" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>Passation de service entre le directeur de l'emploi sortant et le nouveau directeur</h4>
+                <span>Événement professionnel</span>
+                <p>Cette image montre un groupe de personnes dans un cadre de bureau, vraisemblablement en lien avec une passation de direction dans un service de l'emploi.</p>
+           
+                <div class="social">
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="{{ asset('assets/convention/img/image_part_b.jpg') }}" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>Passation de service entre le directeur de l'emploi sortant et le nouveau directeur</h4>
+                <span>Événement professionnel</span>
+                <p>Cette image capture un autre moment de la même passation de service, avec les participants réunis autour d'une table de conférence.</p>
+           
+                <div class="social">
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+         
+        </div>
+
+      </div>
+
+    </section><!-- /Trainers Index Section -->
+
+  </main>
+@include('accueil/components/footer')
+</body>
+
+</html>

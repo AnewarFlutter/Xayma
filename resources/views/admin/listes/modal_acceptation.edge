@@ -1,0 +1,76 @@
+<style>
+    .modal-content {
+      border: 0;
+      border-radius: 0.75rem;
+    }
+    
+    .modal-header {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    
+    .input-group-static input[type="date"] {
+      border: 1px solid #d2d6da;
+      border-radius: 0.375rem;
+      padding: 0.625rem;
+    }
+    
+    .input-group-static input[type="date"]:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25);
+    }
+    </style>
+
+<div class="modal fade" id="ModalAcceptation" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-gradient-success text-white">
+        <h5 class="modal-title fw-bold text-white">
+          <i class="fas fa-calendar-check me-2"></i>
+          Planification du rendez-vous
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form action="{{ route('admin.acceptation') }}" method="POST" id="appointmentForm">
+          {{ csrfField() }}
+          
+          <div class="form-group mb-4">
+            <label class="form-label fw-bold mb-2">
+              Date du rendez-vous <span class="text-danger">*</span>
+            </label>
+            <div class="input-group input-group-static">
+              <input 
+                type="datetime-local" 
+                id="appointmentDate"
+                name="appointment_date"
+                class="form-control"
+                min="{{ new Date().toISOString().split('T')[0] }}"
+                required
+              />
+            </div>
+            <div class="form-text text-muted">
+              <i class="fas fa-info-circle me-1"></i>
+              Sélectionnez une date pour le rendez-vous avec l'entreprise
+            </div>
+          </div>
+
+          <input type="hidden" id="companyId" name="company_id"/>
+        </form>
+      </div>
+
+      <div class="modal-footer border-top">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>
+          Annuler
+        </button>
+        <button type="submit" form="appointmentForm" class="btn bg-gradient-success">
+          <i class="fas fa-check me-2"></i>
+          Confirmer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<style>
+    .modal-content {
+      border: 0;
+      border-radius: 0.75rem;
+    }
+    
+    .modal-header {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+</style>
+
+<div class="modal fade" id="ModalInformation" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-gradient-info text-white">
+        <h5 class="modal-title fw-bold text-white">
+          <i class="fas fa-info-circle me-2"></i>
+          Détails de la demande
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <!-- Pour les demandes acceptées -->
+        <div id="acceptationInfo" style="display: none;">
+          <div class="alert alert-success">
+            <h6 class="alert-heading fw-bold mb-1 text-white">
+              <i class="fas fa-calendar-check me-2"></i>
+              Demande acceptée
+            </h6>
+            <p class="mb-0 text-white">Rendez-vous prévu le : <span id="dateRdv" class="fw-bold"></span></p>
+          </div>
+        </div>
+
+        <!-- Pour les demandes rejetées -->
+        <div id="rejetInfo" style="display: none;">
+          <div class="alert alert-danger">
+            <h6 class="alert-heading fw-bold mb-1 text-white">
+              <i class="fas fa-times-circle me-2"></i>
+              Demande rejetée
+            </h6>
+            <p class="mb-0 text-white">Motif du rejet : <span id="messageRejet" class="fw-bold"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer border-top">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>
+          Fermer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
