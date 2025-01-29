@@ -1,16 +1,10 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
-export default class forme_juridiques extends BaseModel {
+export default class Ville extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column()
-  declare code: string
-
-  @column()
-  declare libelle: string
-  
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
