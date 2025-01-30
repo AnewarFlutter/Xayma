@@ -1,8 +1,23 @@
+
+<style>
+  .ps__rail-x {
+    display: none !important;
+  }
+  
+  .ps__thumb-x {
+    display: none !important;
+  }
+  
+  /* Empêcher le défilement horizontal */
+  .ps {
+    overflow-x: hidden !important;
+  }
+  </style>
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand px-4 py-3 m-0" href="{{ route('admin.dashboard')}}" target="_blank">
-        <img src="{{asset('assets/convention/logo/logo_ministere.png')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+        <img src="{{asset('assets/xayma/logo_img/xayma.png')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
         <span class="ms-1 text-sm text-dark">Administratif</span>
       </a>
     </div>
@@ -16,47 +31,58 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark {{ activeNouvelleDemande ? 'active' : '' }}" href="{{ route('admin.listes') }}">
-            <i class="material-symbols-rounded opacity-5">add_circle</i>
-            <span class="nav-link-text ms-1">Liste des demandes</span>
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">map</i>
+            <span class="nav-link-text ms-1">Regions</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-muted disabled" style="cursor: not-allowed; opacity: 0.5;">
-            <i class="material-symbols-rounded opacity-5">business</i>
-            <span class="nav-link-text ms-1">Forme juridique</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-muted disabled" style="cursor: not-allowed; opacity: 0.5;">
-            <i class="material-symbols-rounded opacity-5">category</i>
-            <span class="nav-link-text ms-1">Domaine d'activité</span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link text-muted disabled" style="cursor: not-allowed; opacity: 0.5;">
-            <i class="material-symbols-rounded opacity-5">settings</i>
-            <span class="nav-link-text ms-1">Paramètre</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">location_city</i>
+            <span class="nav-link-text ms-1">Departement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">apartment</i>
+            <span class="nav-link-text ms-1">Communes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">location_on</i>
+            <span class="nav-link-text ms-1">Villes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">grid_view</i>
+            <span class="nav-link-text ms-1">Secteurs</span>
+          </a>
+        </li>
+        
+        
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
             <i class="material-symbols-rounded opacity-5">person</i>
-            <span class="nav-link-text ms-1 text-muted disabled" style="cursor: not-allowed; opacity: 0.5;">Profile</span>
+            <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
 
         <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">settings</i>
+            <span class="nav-link-text ms-1">Paramètre</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <form action="{{ route('logout.store') }}" method="POST">
             {{ csrfField() }}
-            <button type="submit" class="nav-link text-dark border-0 bg-transparent w-100 d-flex align-items-center">
-              <i class="material-symbols-rounded opacity-9 text-danger">logout</i>
-              <span class="nav-link-text ms-1 text-danger">Déconnexion</span>
-            </button>
+          
           </form>
         </li>
        
@@ -64,6 +90,15 @@
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-     
+      <div class="mx-3">
+
+        <form action="{{ route('logout.store') }}" method="POST">
+          {{ csrfField() }}
+        <button type="submit" class="btn bg-gradient-white w-100 d-flex align-items-center">
+          <i class="material-symbols-rounded opacity-9 text-danger">logout</i>
+          <span class="nav-link-text ms-1 text-danger">Déconnexion</span>
+        </button>
+      </form>
+      </div>
     </div>
   </aside>

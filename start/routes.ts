@@ -18,6 +18,7 @@ import DashboardAdminsController from '#controllers/admin/dashboard_admins_contr
 import LoginController from '#controllers/auth/login_controller';
 import RegistersController from '#controllers/auth/registers_controller';
 import LogoutsController from '#controllers/auth/logouts_controller';
+import ProjetsController from '#controllers/client/projets_controller';
 
 // Routes publiques
 
@@ -57,7 +58,9 @@ router.group(() => {
   router.get('/dashboard', [DashboardController, 'index'])
     .as('dashboard.index')
 
-  // Informations entreprise
+  // Dossier
+
+  router.get('/dossier', [ProjetsController, 'index']).as('projets.index')
   
 
 })

@@ -1,0 +1,87 @@
+   <div class="container py-5">
+          <div class="row g-4">
+            <!-- Total Entreprises -->
+            <div class="col-xl-3 col-sm-6">
+              <div class="stat-card">
+                <div class="card-content">
+                  <div class="icon-shape-wrapper">
+                    <div class="icon-shape bg-gradient-success">
+                      <i class="fas fa-building"></i>
+                    </div>
+                  </div>
+                  <div class="stat-details">
+                    <p class="stat-label">Total Entreprises</p>
+                    <h3 class="stat-value" data-count="2500" id="totalEntreprise">0</h3>
+                    <div class="trend-indicator">
+                      
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Demandes en cours -->
+          
+            <div class="col-xl-3 col-sm-6">
+              <div class="stat-card">
+                <div class="card-content">
+                  <div class="icon-shape-wrapper">
+                    <div class="icon-shape bg-gradient-info">
+                      <i class="fas fa-hourglass-half"></i>
+                    </div>
+                  </div>
+                  <div class="stat-details">
+                    <p class="stat-label">Demandes en cours</p>
+                    <h3 class="stat-value" data-count="1500" id="demandeEnCours">0</h3>
+                    <div class="trend-indicator">
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Demandes acceptées -->
+            <div class="col-xl-3 col-sm-6">
+              <div class="stat-card">
+                <div class="card-content">
+                  <div class="icon-shape-wrapper">
+                    <div class="icon-shape bg-gradient-success">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                  </div>
+                  <div class="stat-details">
+                    <p class="stat-label">Demandes acceptées</p>
+                    <h3 class="stat-value" data-count="1500" id="demandeAccepte">0</h3>
+                    <div class="trend-indicator">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Demandes rejetées -->
+            <div class="col-xl-3 col-sm-6">
+              <div class="stat-card">
+                <div class="card-content">
+                  <div class="icon-shape-wrapper">
+                    <div class="icon-shape bg-gradient-danger">
+                      <i class="fas fa-times-circle"></i>
+                    </div>
+                  </div>
+                  <div class="stat-details">
+                    <p class="stat-label">Demandes rejetées</p>
+                    <h3 class="stat-value" data-count="75" id="demandeRejete">0</h3>
+                    <div class="trend-indicator">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Répéter pour les autres cartes -->
+          </div>
+        </div>
