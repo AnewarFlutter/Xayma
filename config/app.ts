@@ -38,3 +38,10 @@ export const http = defineConfig({
     sameSite: 'lax',
   },
 })
+
+export const appConfig = {
+  host: env.get('HOST'),
+  port: env.get('PORT'),
+  allowOrigins: ['*'], // En développement uniquement
+  trustProxy: true
+}

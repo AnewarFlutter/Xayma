@@ -1,13 +1,29 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, belongsTo, hasMany } from '@adonisjs/lucid/orm'
+import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
+import type Departement from './departement.js'
+import type Ville from './ville.js'
 
 export default class Commune extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
+
+  @column()
+  declare name: string
+
+  @column()
+  declare departement_id: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+
+  // Relations
+  @belongsTo(() => Departement)
+  declare departement: BelongsTo<typeof Departement>
+
+  @hasMany(() => Ville)
+  declare villes: HasMany<typeof Ville>
 }

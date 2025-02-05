@@ -4,7 +4,9 @@ export default class DepartementsController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {}
+  async index({}: HttpContext) {
+    
+  }
 
   /**
    * Display form to create a new record
