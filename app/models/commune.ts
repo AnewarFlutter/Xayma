@@ -26,4 +26,5 @@ export default class Commune extends BaseModel {
 
   @hasMany(() => Ville)
   declare villes: HasMany<typeof Ville>
+  
 }
