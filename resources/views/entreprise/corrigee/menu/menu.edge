@@ -1,0 +1,379 @@
+@include('entreprise/layout/header')
+<style>
+  .menu-card {
+    min-height: 260px; /* Hauteur fixe pour tous les cards */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    background: white;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .menu-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .menu-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .menu-description {
+    color: #666;
+    font-size: 0.9rem;
+    flex-grow: 1; /* Permet à la description de prendre l'espace disponible */
+  }
+
+  /* Positionner le bouton en bas */
+  .menu-card button {
+    margin-top: auto; /* Place le bouton en bas du card */
+    width: calc(100% - 40px); /* Largeur totale moins le padding */
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .history-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+  }
+
+  .nav-pills .nav-link.active {
+    background-color: #4CAF50;
+  }
+
+  .operation-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+  }
+
+  .operation-item:hover {
+    background-color: #f8f9fa;
+  }
+</style>
+
+<body class="g-sidenav-show bg-gray-100">
+  @include('entreprise/layout/nav_bar')
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="{{ route('dossier.retour') }}">Mes dossiers</a></li>
+             
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Menu principal</li>
+          </ol>
+        </nav>
+        @include('entreprise/components/nav_header')
+      </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+      <!-- Menus principaux -->
+
+      <div class="row">
+        <!-- Localisation Administrative -->
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-secondary text-white">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="menu-title">Localisation Administrative</div>
+            <div class="menu-description">Gestion des informations géographiques et administratives</div>
+            <a href ="{{ route('localisations.index') }}" class="btn btn-secondary btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle localisation
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-success text-white">
+              <i class="fas fa-door-closed"></i>
+            </div>
+            <div class="menu-title">Clôtures</div>
+            <div class="menu-description">Gestion des clôtures et délimitations</div>
+            <button class="btn btn-success btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-info text-white">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="menu-title">Locaux Principaux</div>
+            <div class="menu-description">Gestion des espaces principaux</div>
+            <button class="btn btn-info btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-warning text-white">
+              <i class="fas fa-sun"></i>
+            </div>
+            <div class="menu-title">Sols</div>
+            <div class="menu-description">Évaluation des sols et fondations</div>
+            <button class="btn btn-warning btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-primary text-white">
+              <i class="fas fa-tree"></i>
+            </div>
+            <div class="menu-title">Cours Aménagées</div>
+            <div class="menu-description">Gestion des espaces extérieurs</div>
+            <button class="btn btn-primary btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+
+        <!-- Dépendances -->
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-danger text-white">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="menu-title">Dépendances</div>
+            <div class="menu-description">Gestion des espaces annexes et secondaires</div>
+            <button class="btn btn-danger btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+
+        <!-- Aménagements particuliers -->
+        <div class="col-xl-3 col-md-6">
+          <div class="menu-card">
+            <div class="menu-icon bg-gradient-dark text-white">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="menu-title">Aménagements particuliers</div>
+            <div class="menu-description">Installations équipements spécifiques et autres</div>
+            <button class="btn btn-dark btn-sm mt-3">
+              <i class="fas fa-plus me-2"></i>Nouvelle évaluation
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Historique -->
+      <div class="card history-card">
+        <!-- Ajout du titre -->
+        <div class="card-header p-3">
+
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link active" data-tab-target="cloture-tab">Clôtures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab-target="locaux-tab">Locaux Principaux</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab-target="sole-tab">Sols</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab-target="cour-tab">Cours Aménagées</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab-target="dependances-tab">Dépendances</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-tab-target="amenagements-tab">Aménagements Particuliers</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="cloture-tab">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valeur</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Statut</th>
+                      <th class="text-secondary opacity-7">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">22/03/2024</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">15000</p>
+                      </td>
+                      <td>
+                        <span class="badge badge-sm bg-gradient-success">Complété</span>
+                      </td>
+                      <td class="align-middle">
+                        <button class="btn btn-link text-secondary mb-0">
+                          <i class="fas fa-eye text-xs"></i>
+                        </button>
+                        <button class="btn btn-link text-danger mb-0">
+                          <i class="fas fa-trash text-xs"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="locaux-tab">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valeur</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Statut</th>
+                      <th class="text-secondary opacity-7">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">23/03/2024</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">25000</p>
+                      </td>
+                      <td>
+                        <span class="badge badge-sm bg-gradient-warning">En cours</span>
+                      </td>
+                      <td class="align-middle">
+                        <button class="btn btn-link text-secondary mb-0">
+                          <i class="fas fa-eye text-xs"></i>
+                        </button>
+                        <button class="btn btn-link text-danger mb-0">
+                          <i class="fas fa-trash text-xs"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="sole-tab">
+              <!-- Même structure de tableau que ci-dessus -->
+              <div class="table-responsive">
+                <!-- ... -->
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="cour-tab">
+              <!-- Même structure de tableau que ci-dessus -->
+              <div class="table-responsive">
+                <!-- ... -->
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="dependances-tab">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valeur</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Statut</th>
+                      <th class="text-secondary opacity-7">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Contenu similaire aux autres tableaux -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="amenagements-tab">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valeur</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Statut</th>
+                      <th class="text-secondary opacity-7">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Contenu similaire aux autres tableaux -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @include('entreprise/components/footer')
+  </main>
+
+  @include('entreprise/layout/script')
+
+
+
+  <script>
+    // Gestion des onglets d'historique
+    document.querySelectorAll('.history-card .nav-pills .nav-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('data-tab-target');
+
+        // Désactiver tous les onglets
+        document.querySelectorAll('.history-card .nav-pills .nav-link').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('.history-card .tab-content .tab-pane').forEach(p => {
+          p.classList.remove('show', 'active');
+        });
+
+        // Activer l'onglet sélectionné
+        this.classList.add('active');
+        document.getElementById(target).classList.add('show', 'active');
+      });
+    });
+  </script>
+</body>
+
+</html>

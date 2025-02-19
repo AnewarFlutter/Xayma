@@ -1,0 +1,144 @@
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog "> {{-- Modification pour une modale plus large --}}
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title text-black fw-bold">Ajouter une localisation</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4">
+                <form action="{{ route('localisations.store') }}" method="POST">
+                    {{ csrfField() }}
+                    <div class="container">
+                        {{-- Code Agent seul sur la première ligne --}}
+                        <div class="row mb-2">
+                            <div class="col-12">
+                                <label class="form-label">Code Agent<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" class="form-control" id="code_agent" name="code_agent" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Région et Département côte à côte --}}
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label class="form-label">Région<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-dynamic">
+                                    <select class="form-select" id="region_id" name="region_id" required>
+                                        <option value="">Sélectionner une région</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Département<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-dynamic">
+                                    <select class="form-select" id="departement_id" name="departement_id" required>
+                                        <option value="">Sélectionner un département</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Commune et Ville côte à côte --}}
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label class="form-label">Commune<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-dynamic">
+                                    <select class="form-select" id="commune_id" name="commune_id" required>
+                                        <option value="">Sélectionner une commune</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Ville<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-dynamic">
+                                    <select class="form-select" id="ville_id" name="ville_id" required>
+                                        <option value="">Sélectionner une ville</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Secteur sur une nouvelle ligne --}}
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label class="form-label">Secteur<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-dynamic">
+                                    <select class="form-select" id="secteur_id" name="secteur_id" required>
+                                        <option value="">Sélectionner un secteur</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer border-top pt-4">
+                        <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-2"></i>Annuler
+                        </button>
+                        <button type="submit" class="btn bg-gradient-success px-4">
+                            <i class="fas fa-save me-2"></i>Enregistrer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.modal-lg {
+    max-width: 800px;
+}
+
+.modal-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.input-group-dynamic {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-group-dynamic select,
+.input-group-outline input {
+    border: 1px solid #d2d6da;
+    border-radius: 0.375rem;
+    padding: 0.6rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.input-group-dynamic select:focus,
+.input-group-outline input:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    text-transform: none;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+}
+
+.modal-content {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.text-danger {
+    margin-left: 4px;
+}
+</style>

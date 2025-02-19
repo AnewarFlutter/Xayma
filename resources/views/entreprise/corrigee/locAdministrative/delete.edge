@@ -1,0 +1,57 @@
+<style>
+  .modal-confirm {
+      color: #636363;
+      width: 400px;
+  }
+  .modal-confirm .modal-content {
+      padding: 20px;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+      font-size: 14px;
+  }
+  .modal-confirm .icon-box {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+      z-index: 9;
+      text-align: center;
+      border: 3px solid #f15e5e;
+  }
+  .modal-confirm .icon-box i {
+      color: #f15e5e;
+      font-size: 46px;
+      display: inline-block;
+      margin-top: 13px;
+  }
+  .modal-confirm .btn {
+      min-height: 40px;
+      border-radius: 3px;
+      margin: 0 5px;
+  }
+  </style>
+
+<div class="modal fade" id="ModalDelete" tabindex="-1">
+  <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+          <div class="modal-header flex-column">
+              <div class="icon-box">
+                  <i class="fas fa-times"></i>
+              </div>
+              <h4 class="modal-title w-100">Êtes-vous sûr ?</h4>
+              <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <p>Êtes-vous sûr de vouloir supprimer cette localisation ? Cette action est irréversible.</p>
+          </div>
+          <form action="{{ route('localisations.destroy') }}" method="POST">
+              {{ csrfField() }}
+              <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

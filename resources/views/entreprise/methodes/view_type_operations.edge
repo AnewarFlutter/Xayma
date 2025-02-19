@@ -1,0 +1,170 @@
+@include('entreprise/layout/header')
+<style>
+  
+
+    .method-card {
+        min-height: 350px;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background: white;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 100px; /* Ajouter de l'espace en bas pour le bouton */
+    }
+
+    .method-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .method-icon {
+        font-size: 80px;
+        margin-bottom: 20px;
+        color: #4CAF50;
+    }
+
+    .method-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+
+    .method-description {
+        font-size: 16px;
+        color: #7f8c8d;
+        padding: 0 20px;
+        margin-bottom: 30px; /* Ajouter de l'espace entre le texte et le bouton */
+    }
+
+    .method-overlay {
+        position: absolute;
+        bottom: -10px; /* Ajuster la position depuis le bas */
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    .method-btn {
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .method-btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+<body class="g-sidenav-show  bg-gray-100">
+
+
+    @include('entreprise/layout/nav_bar')
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Méthode d'analyse
+                                demande</a>
+                        </li>
+
+                    </ol>
+                </nav>
+                @include('entreprise/components/nav_header')
+            </div>
+        </nav>
+
+
+        <!-- End Navbar -->
+        <div class="container-fluid py-2">
+
+            <!------------------ 5 card avec ecrit a l'interieure Etape 1 ; Etape 2 etc pour montrer ou on en est-------------------------->
+            
+
+            <div class="container-fluid py-4">
+                <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="font-weight-bold">Choisissez votre méthode d'analyse</h2>
+                        <p class="text-muted">Sélectionnez la méthode qui convient le mieux à vos besoins</p>
+                    </div>
+    
+                    <!-- Méthode Par Surface Corrigée -->
+                    <div class="col-md-5 mb-4">
+                        <div class="method-card text-center p-5">
+                            <div class="method-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="method-title">Méthode Par Surface Corrigée</h3>
+                            <p class="method-description ">
+                                Analyse approfondie avec corrections détaillées pour une précision optimale. 
+                                Recommandée pour les projets nécessitant une haute exactitude.
+                            </p>
+                            <div class="method-overlay ">
+                                <a href="{{route('dossiers.index')}}" class="btn btn-success method-btn">
+                                    <i class="fas fa-arrow-right me-2"></i>
+                                    Sélectionner
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Méthode Cadastrale Simplifiée -->
+                    <div class="col-md-5 mb-4">
+                        <div class="method-card text-center p-5">
+                            <div class="method-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3 class="method-title">Méthode Cadastrale Simplifiée</h3>
+                            <p class="method-description">
+                                Approche simplifiée pour une évaluation rapide et efficace. 
+                                Idéale pour les projets nécessitant une analyse sommaire.
+                            </p>
+                            <div class="method-overlay">
+                                <a href="#" class="btn btn-success method-btn">
+                                    <i class="fas fa-arrow-right me-2"></i>
+                                    Sélectionner
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @include('entreprise/components/footer')
+        </div>
+
+
+    </main>
+
+    @include('entreprise/layout/script')
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const gridBtn = document.getElementById('grid-view');
+          const listBtn = document.getElementById('list-view');
+          const container = document.querySelector('.row.g-3');
+        
+          gridBtn.addEventListener('click', function() {
+            container.classList.remove('view-list');
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+          });
+        
+          listBtn.addEventListener('click', function() {
+            container.classList.add('view-list');
+            listBtn.classList.add('active'); 
+            gridBtn.classList.remove('active');
+          });
+        });
+        </script>
+</body>

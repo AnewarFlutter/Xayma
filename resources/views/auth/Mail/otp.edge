@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code de vérification - Direction de l'Emploi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #4CAF50;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            padding: 30px 20px;
+            color: #333;
+        }
+        .otp-code {
+            text-align: center;
+            font-size: 32px;
+            letter-spacing: 5px;
+            color: #4CAF50;
+            background: #f8f8f8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px dashed #4CAF50;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .warning {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <img src="{{ asset('assets/convention/logo/logo_ministere.png') }}" alt="Logo" class="logo">
+            <h1 style="color: #4CAF50;">Direction de l'Emploi</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Bonjour,</h2>
+            <p>Voici votre code de vérification pour accéder à votre compte Direction de l'Emploi :</p>
+            
+            <div class="otp-code">
+                {{ code }}
+            </div>
+            
+            <p>Ce code est valable pendant 10 minutes. Ne le partagez avec personne.</p>
+            
+            <p>Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer cet e-mail.</p>
+            
+            <div class="warning">
+                <p>Cet e-mail a été envoyé automatiquement, merci de ne pas y répondre.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© {{ new Date().getFullYear() }} Direction de l'Emploi. Tous droits réservés.</p>
+            <p>Pour nous contacter : <a href="mailto:contact@direction-emploi.sn">contact@direction-emploi.sn</a></p>
+        </div>
+    </div>
+</body>
+</html>

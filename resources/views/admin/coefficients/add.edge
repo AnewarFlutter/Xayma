@@ -1,0 +1,36 @@
+<div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Ajouter un coefficient</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('coefficients.store') }}" data-toggle="validator" role="form"
+                    method="POST" enctype="multipart/form-data">
+                    {{ csrfField() }}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label">Valeur du coefficient<span class="text-danger">*</span></label>
+                                    <input 
+                                        type="number" 
+                                        step="0.01"
+                                        class="form-control"
+                                        id="value"
+                                        name="value"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times me-2"></i>Annuler</button>
+                <button type="submit" class="btn btn-success"><i class="fas fa-save me-2"></i>Enregistrer</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

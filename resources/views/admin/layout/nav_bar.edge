@@ -1,0 +1,161 @@
+<style>
+  .ps__rail-x {
+    display: none !important;
+  }
+  
+  .ps__thumb-x {
+    display: none !important;
+  }
+  
+  /* Empêcher le défilement horizontal */
+  .ps {
+    overflow-x: hidden !important;
+  }
+  </style>
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2" id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand px-4 py-3 m-0" href="{{ route('admin.dashboard')}}" target="_blank">
+        <img src="{{asset('assets/xayma/logo_img/xayma.png')}}" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+        <span class="ms-1 text-sm text-dark">Administratif</span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active bg-gradient-success text-white" href="{{ route('admin.dashboard') }}">
+            <i class="material-symbols-rounded opacity-5">dashboard</i>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('regions.index') }}">
+            <i class="material-symbols-rounded opacity-5">map</i>
+            <span class="nav-link-text ms-1">Regions</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('departements.index') }}">
+            <i class="material-symbols-rounded opacity-5">location_city</i>
+            <span class="nav-link-text ms-1">Departement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('communes.index') }}">
+            <i class="material-symbols-rounded opacity-5">apartment</i>
+            <span class="nav-link-text ms-1">Communes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('villes.index') }}">
+            <i class="material-symbols-rounded opacity-5">location_on</i>
+            <span class="nav-link-text ms-1">Villes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('secteurs.index') }}">
+            <i class="material-symbols-rounded opacity-5">grid_view</i>
+            <span class="nav-link-text ms-1">Secteurs</span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a data-bs-toggle="collapse" href="#notesExamples" class="nav-link text-dark collapsed" aria-controls="notesExamples" role="button" aria-expanded="false">
+            <i class="material-symbols-rounded opacity-5 {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">grade</i>
+            <span class="nav-link-text ms-1 ps-1">Notes </span>
+          </a>
+          <div class="collapse" id="notesExamples" style="">
+            <ul class="nav ">
+              <li class="nav-item ">
+                <a class="nav-link text-dark " href="{{ route('coefficients.index') }}">
+                  <span class="sidenav-mini-icon"> C </span>
+                  <span class="sidenav-normal  ms-1  ps-1"> Coefficient  </span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-dark " href="{{ route('mentions.index') }}">
+                  <span class="sidenav-mini-icon"> M </span>
+                  <span class="sidenav-normal  ms-1  ps-1"> Mention</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+   
+
+        <li class="nav-item">
+          <a data-bs-toggle="collapse" href="#criteresExamples" class="nav-link text-dark collapsed" aria-controls="criteresExamples" role="button" aria-expanded="false">
+            <i class="material-symbols-rounded opacity-5 {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">checklist</i>
+            <span class="nav-link-text ms-1 ps-1">Critères d'évaluation</span>
+          </a>
+          <div class="collapse" id="criteresExamples" style="">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ route('eclairages.index') }}">
+                  <span class="sidenav-mini-icon">E</span>
+                  <span class="sidenav-normal ms-1 ps-1">Éclairage</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ route('ventilations.index') }}">
+                  <span class="sidenav-mini-icon">V</span>
+                  <span class="sidenav-normal ms-1 ps-1">Ventilation</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ route('anciennetes.index') }}">
+                  <span class="sidenav-mini-icon">A</span>
+                  <span class="sidenav-normal ms-1 ps-1">Ancienneté</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ route('vertustes.index') }}">
+                  <span class="sidenav-mini-icon">V</span>
+                  <span class="sidenav-normal ms-1 ps-1">Vétusté & Entretien</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">person</i>
+            <span class="nav-link-text ms-1">Profile</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">
+            <i class="material-symbols-rounded opacity-5">settings</i>
+            <span class="nav-link-text ms-1">Paramètre</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <form action="{{ route('logout.store') }}" method="POST">
+            {{ csrfField() }}
+          
+          </form>
+        </li>
+       
+       
+      </ul>
+    </div>
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+      <div class="mx-3">
+
+        <form action="{{ route('logout.store') }}" method="POST">
+          {{ csrfField() }}
+        <button type="submit" class="btn bg-gradient-white w-100 d-flex align-items-center">
+          <i class="material-symbols-rounded opacity-9 text-danger">logout</i>
+          <span class="nav-link-text ms-1 text-danger">Déconnexion</span>
+        </button>
+      </form>
+      </div>
+    </div>
+  </aside>

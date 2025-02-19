@@ -1,0 +1,144 @@
+@include('admin/layout/header')
+
+<body class="g-sidenav-show  bg-gray-100">
+    @include('admin/layout/nav_bar')
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Gestion</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Mentions</li>
+                    </ol>
+                </nav>
+                @include('admin/components/nav_header')
+            </div>
+        </nav>
+
+        <div class="container-fluid py-2">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header p-3">
+                            <h5 class="mb-0">Liste des mentions</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <button type="button" class="btn text-white mb-4 bg-success"
+                                data-bs-toggle="modal" data-bs-target="#basicModal">
+                                <i class="fas fa-plus-circle"></i> 
+                                <span>Ajouter une mention</span>
+                            </button>
+
+                            <table class="table table-striped table-bordered table-hover"
+                                data-toolbar="#btnModalFormGestionStation" 
+                                id="table" 
+                                data-toggle="table"
+                                data-search="true" 
+                                data-pagination="true" 
+                                data-ajax="ajaxRequest"
+                                data-buttons-class="cronos" 
+                                data-show-refresh="true" 
+                                data-show-toggle="true"
+                                data-show-footer="false" 
+                                data-footer-style="footerStyle" 
+                                data-show-fullscreen="true"
+                                data-show-columns="true" 
+                                data-show-columns-toggle-all="true" 
+                                data-show-export="true"
+                                data-click-to-select="true" 
+                                data-select-item-name="toolbar"
+                                data-export-types="['csv','excel','pdf']" 
+                                data-sort-name="name"
+                                data-page-list="[10, 25, 50, 100, all]" 
+                                data-page-size="10" 
+                                data-sort-order="desc"
+                                data-detail-view="false" 
+                                data-detail-formatter="detailFormatter">
+                                <thead>
+                                    <tr>
+                                        <th data-field="name" data-sortable="true">Mentions</th>
+                                        <th data-formatter="actionFormatter" 
+                                            data-events="actionEvents"
+                                            data-halign="center" 
+                                            data-align="center">Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @include('admin/components/footer')
+        </div>
+    </main>
+
+    @include('admin/layout/script')
+    @include('admin/mentions/add')
+    @include('admin/mentions/edit')
+    @include('admin/mentions/delete')
+
+    <script>
+        function ajaxRequest(params) {
+            var url = '{{ route('mentions.create') }}'
+            $.get(url + '?' + $.param(params.data)).then(function (res) {
+                params.success(res)
+            })
+        }
+
+        function actionFormatter(value, row, index) {
+            return [
+                '<a class="editProviders" style="color:blue" href="javascript:void(0)" title="Modifier">',
+                '<i class="fas fa-edit" aria-hidden="true"></i>',
+                '</a>',
+                ' &nbsp &nbsp',
+                '<a class="deleteProviders" style="color:red" href="javascript:void(0)" title="Supprimer">',
+                '<i class="fas fa-trash" aria-hidden="true"></i>',
+                '</a>'
+            ].join('');
+        }
+
+        window.actionEvents = {
+            'click .editProviders': function(e, value, row, index) {
+                var id = row.id;
+                $('#ModalEdit').modal('show');
+
+                $.ajax({
+                    type: "GET",
+                    url: "{{ route('mentions.edit', {id: ':id'}) }}".replace(':id', id),
+                    success: function(response) {
+                        if (response.status === 200) {
+                            $('#ModalEdit #name').val(response.mention.name);
+                            $('#ModalEdit #id').val(response.mention.id);
+                        } else {
+                            toastr.error('Erreur lors du chargement des données');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        toastr.error('Erreur lors du chargement des informations');
+                    }
+                });
+            },
+            
+            'click .deleteProviders': function (e, value, row, index) {
+                var id = row.id;
+                $('#ModalDelete').modal('show');
+                $('#deleteing_id').val(id);
+            }
+        };
+
+        $(function () {
+            $('.toastrDefaultSuccess').each(function () {
+                toastr.success($(this).text());
+            });
+            $('.toastrDefaultWarning').each(function () {
+                toastr.warning($(this).text());
+            });
+            $('.toastrDefaultError').each(function () {
+                toastr.error($(this).text());
+            });
+        });
+    </script>
+</body>

@@ -1,0 +1,197 @@
+@include('entreprise/layout/header')
+<style>
+    .folder-item {
+      padding: 1rem;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      position: relative; /* Pour positionner l'icône de suppression */
+    }
+    
+    .folder-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    .folder-name {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    
+    .folder-details small {
+      font-size: 0.75rem;
+    }
+    .view-list .folder-item {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .view-list .folder-icon {
+        margin-right: 1rem;
+        margin-bottom: 0 !important;
+      }
+      
+      .view-list .folder-details {
+        text-align: left;
+      }
+      
+      .view-list .col-md-3 {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+
+      .delete-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 5px;
+        border-radius: 50%;
+        color: #dc3545;
+        cursor: pointer;
+        z-index: 1;
+      }
+      
+      .folder-item:hover .delete-icon {
+        opacity: 1;
+      }
+    </style>
+<body class="g-sidenav-show  bg-gray-100">
+
+
+    @include('entreprise/layout/nav_bar')
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Méthode cadastrale corrigée </a>
+                        </li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Mes analyses</li>
+                    </ol>
+                </nav>
+                @include('entreprise/components/nav_header')
+            </div>
+        </nav>
+
+
+        <!-- End Navbar -->
+        <div class="container-fluid py-2">
+
+            <!------------------ 5 card avec ecrit a l'interieure Etape 1 ; Etape 2 etc pour montrer ou on en est-------------------------->
+            <div class="row mt-4">
+                <!-- Cards d'étapes -->
+
+
+                <!-- Dossier -->
+                <div class="col-12">
+                    <div class="card">
+                      <div class="card-header p-3 d-flex justify-content-between align-items-center">
+                        <div class=" align-items-center">
+                            <h5 class="mb-0">Mes analyses</h5> 
+                          <button href="#" class="btn bg-gradient-info ms-4 mt-4"  data-bs-toggle="modal" data-bs-target="#basicModal">
+                            <i class="fas fa-plus me-2"></i>
+                            Nouvelle analyse
+                          </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary btn-sm active" id="grid-view" title="Vue grille">
+                              <i class="fas fa-th"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm" id="list-view" title="Vue liste">
+                              <i class="fas fa-list"></i>
+                            </button>
+                          </div>
+                          
+                      </div>
+                      <div class="card-body p-4">
+                        <div class="row g-3">
+                          {{-- Boucle sur les dossiers --}}
+                          <div class="row g-3">
+                            @each(dossier in dossiers)
+                              <div class="col-md-3 col-sm-4 col-6">
+                                <div class="folder-item" role="button">
+                                  <button type="button" 
+                                          class="fas fa-trash delete-icon" 
+                                          style="border:none; background:none;"
+                                          onclick="confirmDelete('{{ dossier.id }}')"
+                                  ></button>
+                                  <a href="{{ route('dossiers.show', { id: dossier.id }) }}" 
+                                     style="text-decoration: none; color: inherit;">
+                                    <div class="folder-icon mb-2">
+                                      <i class="fas fa-folder fa-3x text-warning"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                      <div class="folder-name text-truncate">{{ dossier.nom }}</div>
+                                      <small class="text-muted">Code: {{ dossier.code }}</small><br>
+                                      <small class="text-muted">Créé le {{ dossier.createdAt.toFormat('dd/MM/yyyy') }}</small>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            @else
+                              <div class="col-12">
+                                <div class="text-center py-5">
+                                  <div class="mb-4">
+                                    <i class="fas fa-folder-open text-warning" style="font-size: 5rem; opacity: 0.5;"></i>
+                                  </div>
+                                  <h4 class="text-secondary mb-2">Aucun dossier trouvé</h4>
+                                  <p class="text-muted mb-4">Commencez par créer une nouvelle analyse en cliquant sur le bouton ci-dessus</p>
+                                  
+                                </div>
+                              </div>
+                            @end
+                          </div>
+                        {{-- Boucle sur les dossiers --}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            @include('entreprise/components/footer')
+        </div>
+
+
+    </main>
+
+    @include('entreprise/layout/script')
+    @include('entreprise/corrigee/dossiers/add')
+    @include('entreprise/corrigee/dossiers/delete')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const gridBtn = document.getElementById('grid-view');
+          const listBtn = document.getElementById('list-view');
+          const container = document.querySelector('.row.g-3');
+        
+          gridBtn.addEventListener('click', function() {
+            container.classList.remove('view-list');
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+          });
+        
+          listBtn.addEventListener('click', function() {
+            container.classList.add('view-list');
+            listBtn.classList.add('active'); 
+            gridBtn.classList.remove('active');
+          });
+        });
+
+        function confirmDelete(id) {
+          $('#ModalDelete').modal('show');
+          $('#deleteing_id').val(id);
+        }
+    </script>
+</body>
+</html>

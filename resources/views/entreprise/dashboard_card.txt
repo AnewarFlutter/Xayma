@@ -1,0 +1,118 @@
+<div class="col-12">
+            <div class="row">
+              <!-- Conventions en cours -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">task_alt</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Conventions</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Demande de convention
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Partenariats -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">group</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Partenariats</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Direction et Entreprise
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Statistiques -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">analytics</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Statistiques</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Statistiques et Tableaux de bord
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rapports -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">description</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Rapports</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Générer et Consulter
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stagiaires -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">school</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Remplacement</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Remplacement de stagiaires
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nouvelle demande -->
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card card-hover">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                      <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-md">
+                        <i class="material-symbols-rounded text-white">add_circle</i>
+                      </div>
+                      <div class="ms-3">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Renouvellement </p>
+                        <h5 class="font-weight-bolder mb-0">
+                          Renouvellement de convention
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>

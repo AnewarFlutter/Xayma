@@ -1,0 +1,49 @@
+<!-- Messages flash pour succès -->
+@if(flashMessages.has('success'))
+<div class="position-fixed top-1 end-1 z-index-2">
+    <div class="toast fade show bg-white" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
+        <div class="toast-header border-0">
+            <i class="material-symbols-rounded text-success me-2">check_circle</i>
+            <span class="me-auto font-weight-bold">Succès</span>
+            <small class="text-body">à l'instant</small>
+            <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+        </div>
+        <hr class="horizontal dark m-0">
+        <div class="toast-body">
+            {{ flashMessages.get('success') }}
+        </div>
+    </div>
+</div>
+@endif
+
+<!-- Messages flash pour erreur -->  
+@if(flashMessages.has('error'))
+<div class="position-fixed top-1 end-1 z-index-2">
+    <div class="toast fade show bg-white" role="alert" aria-live="assertive" id="errorToast" aria-atomic="true">
+        <div class="toast-header border-0">
+            <i class="material-symbols-rounded text-danger me-2">error</i> 
+            <span class="me-auto font-weight-bold">Erreur</span>
+            <small class="text-body">à l'instant</small>
+            <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+        </div>
+        <hr class="horizontal dark m-0">
+        <div class="toast-body">
+            {{ flashMessages.get('error') }}
+        </div>
+    </div>
+</div>
+@endif
+
+<!-- Script pour initialiser les toasts -->
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {
+    var toasts = document.querySelectorAll('.toast')
+    toasts.forEach(toast => {
+        new bootstrap.Toast(toast, {
+            animation: true,
+            autohide: true,
+            delay: 3000
+        }).show()
+    })
+})
+</script>

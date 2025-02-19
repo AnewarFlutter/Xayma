@@ -1,0 +1,128 @@
+@include('entreprise/layout/header')
+{{-- Ajouter dans la section style --}}
+<style>
+    .form-check-input:checked {
+      background-color: #1A73E8 !important;
+      border-color: #1A73E8 !important;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") !important;
+    }
+    
+    .form-check-input:focus {
+      border-color: #1A73E8;
+      box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+    }
+  
+    .form-check-input {
+      width: 1.2em;
+      height: 1.2em;
+      border: 2px solid #ddd;
+      cursor: pointer;
+    }
+  </style>
+
+<main class="main-content  mt-0">
+    <section>
+      <div class="page-header min-vh-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+              <div class="position-relative bg-gradient-info h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url({{ asset('assets/xayma/auth_img/register.jpg') }}); background-size: cover;">
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+              <div class="card card-plain">
+                <div class="card-header">
+                  <h4 class="font-weight-bolder">S'inscrire</h4>
+                  <p class="mb-0">Entrez votre email et votre mot de passe pour vous inscrire</p>
+                </div>
+                <div class="card-body">
+                  <form role="form" method="POST" action="{{ route('register.store') }}">
+                    {{ csrfField() }}
+                    
+                    {{-- Affichage des erreurs --}}
+                    @if(flashMessages.has('errors.error'))
+                      <div class="alert alert-danger text-white">
+                        {{ flashMessages.get('errors.error') }}
+                      </div>
+                    @endif
+
+                    <div class="mb-3">
+                      <div class="input-group input-group-outline">
+                        <label class="form-label">Nom</label>
+                        <input type="text" name="name" class="form-control" required>
+                      </div>
+                      @if(flashMessages.has('errors.name'))
+                        <div class="text-danger mt-1 ms-1">{{ flashMessages.get('errors.name') }}</div>
+                      @endif
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="input-group input-group-outline">
+                        <label class="form-label">Prénoms</label>
+                        <input type="text" name="full_name" class="form-control" required>
+                      </div>
+                      @if(flashMessages.has('errors.full_name'))
+                        <div class="text-danger mt-1 ms-1">{{ flashMessages.get('errors.full_name') }}</div>
+                      @endif
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="input-group input-group-outline">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                      </div>
+                      @if(flashMessages.has('errors.email'))
+                        <div class="text-danger mt-1 ms-1">{{ flashMessages.get('errors.email') }}</div>
+                      @endif
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="input-group input-group-outline">
+                        <label class="form-label">Mot de passe</label>
+                        <input type="password" name="password" class="form-control" required>
+                      </div>
+                      @if(flashMessages.has('errors.password'))
+                        <div class="text-danger mt-1 ms-1">{{ flashMessages.get('errors.password') }}</div>
+                      @endif
+                    </div>
+                   
+                    <div class="mb-3">
+                      <div class="input-group input-group-outline">
+                        <label class="form-label">Confirmation du mot de passe</label>
+                        <input type="password" name="password_confirmation" class="form-control" required>
+                      </div>
+                      @if(flashMessages.has('errors.password_confirmation'))
+                        <div class="text-danger mt-1 ms-1">{{ flashMessages.get('errors.password_confirmation') }}</div>
+                      @endif
+                    </div>
+
+
+                    <div class="form-check form-check-info text-start ps-0">
+                      <input class="form-check-input ms-auto" type="checkbox" id="terms" name="terms" required>
+                      <label class="form-check-label" for="terms">
+                        J'accepte les <a href="javascript:;" class="text-info font-weight-bolder">termes et conditions</a>
+                      </label>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-lg bg-gradient-info btn-lg w-100 mt-4 mb-0">S'inscrire</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                  <p class="mb-2 text-sm mx-auto">
+                    Vous avez déjà un compte ?
+                    <a href="{{ route('login.index') }}" class="text-info text-gradient font-weight-bold">Connectez-vous</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @include('entreprise/layout/script')
+</body>
+</html>
