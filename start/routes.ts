@@ -33,6 +33,7 @@ import VertustesController from '#controllers/admin/vertustes_controller';
 import AnciennetesController from '#controllers/admin/anciennetes_controller';
 import LocalisationAdministrativeController from '#controllers/client/corrigee/localisations_controller';
 import DependancesController from '#controllers/client/corrigee/dependances_controller'
+import EquivalenceSuperficiellesController from '#controllers/admin/equivalences_superficielles_controller'
 // Routes publiques
 
 router.get('/', [LoginController, 'index']).as('login.index')
@@ -159,6 +160,19 @@ router.group(() => {
     router.post('/admin/anciennetes/delete', [AnciennetesController, 'destroy']).as('anciennetes.destroy')
 
 
+  router.get('/admin/equivalence-superficielles', [EquivalenceSuperficiellesController, 'index'])
+    .as('equivalence-superficielles.index')
+  router.get('/admin/equivalence-superficielles/create', [EquivalenceSuperficiellesController, 'create'])
+    .as('equivalence-superficielles.create')
+  router.post('/admin/equivalence-superficielles/store', [EquivalenceSuperficiellesController, 'store'])
+    .as('equivalence-superficielles.store')  
+  router.get('/admin/equivalence-superficielles/:id/edit', [EquivalenceSuperficiellesController, 'edit'])
+    .as('equivalence-superficielles.edit')  
+  router.post('/admin/equivalence-superficielles/update', [EquivalenceSuperficiellesController, 'update'])
+    .as('equivalence-superficielles.update')   
+  router.post('/admin/equivalence-superficielles/delete', [EquivalenceSuperficiellesController, 'destroy'])
+    .as('equivalence-superficielles.destroy')
+
 }).use(middleware.auth()) // Vérifie l'authentification
 .use(middleware.admin()) // Vérifie si admin
 
@@ -249,6 +263,9 @@ router.post('/dependances/update', [DependancesController, 'update'])
 // Suppression d'une dépendance
 router.post('/dependances/delete', [DependancesController, 'destroy'])
 .as('dependances.destroy')
+router.get('/dependances/retour', [DependancesController, 'retour']).as('dependances.retour')
+
+
 
 })
 .use(middleware.auth()) // Vérifie l'authentification

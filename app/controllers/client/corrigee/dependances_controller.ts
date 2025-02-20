@@ -43,9 +43,12 @@ export default class DependancesController {
   /**
    * Display form to create a new record
    */
-  async create({ response }: HttpContext) {
+  async create({ response, session }: HttpContext) {
     try {
+      const currentDossierCode = session.get('currentDossierCode')
+
       const dependances = await Dependance.query()
+        .where('code', currentDossierCode)
         .preload('eclairage', (query) => {
           query.preload('coefficient')
         })
@@ -86,6 +89,26 @@ export default class DependancesController {
     }
   }
 
+  async retour({ response, session }: HttpContext) {
+    try {
+      // Récupérer l'URL précédente depuis la session
+      const previousUrl = session.get('previousUrl')
+      
+      // Si une URL précédente existe, rediriger vers celle-ci
+      if (previousUrl) {
+        // Supprimer l'URL de la session après utilisation
+        session.forget('previousUrl')
+        return response.redirect(previousUrl)
+      } 
+      
+      // Sinon rediriger en arrière
+      return response.redirect().back()
+  
+    } catch (error) {
+      console.error(error)
+      return response.redirect().back()
+    }
+  }
   /**
    * Handle form submission for the create action
    */
