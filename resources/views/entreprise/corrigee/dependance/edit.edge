@@ -1,0 +1,95 @@
+<div class="modal fade" id="ModalEdit" tabindex="-1">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Modifier la dépendance</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('dependances.update') }}" data-toggle="validator" role="form"
+                    method="POST" enctype="multipart/form-data">
+                    {{ csrfField() }}
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" id="id" name="id" />
+                    
+                    <div class="container">
+                        <!-- Nature et Surface sur la même ligne -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nature des dépendances<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" class="form-control" id="nature_des_dependances" name="nature_des_dependances" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Surface réelle<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <input type="number" step="0.01" class="form-control" id="surface_reelle" name="surface_reelle" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Éclairement et Ventilation sur la même ligne -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Coefficient Éclairement<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <select class="form-select" id="coefficient_eclairement_id" name="coefficient_eclairement_id" required>
+                                        <option value="">Sélectionner un coefficient</option>
+                                        @each(eclairage in eclairages)
+                                            <option value="{{ eclairage.id }}">{{ eclairage.coefficient.value }} {{eclairage.mention.name}}</option>
+                                        @endeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Coefficient Ventilation<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <select class="form-select" id="coefficient_ventilation_id" name="coefficient_ventilation_id" required>
+                                        <option value="">Sélectionner un coefficient</option>
+                                        @each(ventilation in ventilations)
+                                            <option value="{{ ventilation.id }}">{{ ventilation.coefficient.value }} {{ventilation.mention.name}}</option>
+                                        @endeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vétusté et Ancienneté sur la même ligne -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Coefficient Vétusté<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <select class="form-select" id="coefficient_vetuste_id" name="coefficient_vetuste_id" required>
+                                        <option value="">Sélectionner un coefficient</option>
+                                        @each(vertuste in vertustes)
+                                            <option value="{{ vertuste.id }}">{{ vertuste.coefficient.value }} {{ vertuste.mention.name }}</option>
+                                        @endeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Coefficient Ancienneté<span class="text-danger">*</span></label>
+                                <div class="input-group input-group-outline">
+                                    <select class="form-select" id="coefficient_anciennete_id" name="coefficient_anciennete_id" required>
+                                        <option value="">Sélectionner un coefficient</option>
+                                        @each(anciennete in anciennetes)
+                                            <option value="{{ anciennete.id }}">{{ anciennete.coefficient.value }} {{ anciennete.mention.name }}</option>
+                                        @endeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Annuler
+                </button>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save me-2"></i>Enregistrer
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

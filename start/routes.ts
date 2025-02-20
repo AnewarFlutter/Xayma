@@ -32,7 +32,7 @@ import VentilationsController from '#controllers/admin/ventilations_controller';
 import VertustesController from '#controllers/admin/vertustes_controller';
 import AnciennetesController from '#controllers/admin/anciennetes_controller';
 import LocalisationAdministrativeController from '#controllers/client/corrigee/localisations_controller';
-
+import DependancesController from '#controllers/client/corrigee/dependances_controller'
 // Routes publiques
 
 router.get('/', [LoginController, 'index']).as('login.index')
@@ -224,6 +224,32 @@ router.get('/api/villes/:communeId', [LocalisationAdministrativeController, 'get
 router.get('/api/secteurs/:villeId', [LocalisationAdministrativeController, 'getSecteurs']) // Modifier le paramètre
 router.get('/api/regions', [LocalisationAdministrativeController, 'getRegions'])
 router.get('/api/localisations/current', [LocalisationAdministrativeController, 'getCurrentLocalisation'])
+
+//=====================================================================================================
+
+router.get('/dependances', [DependancesController, 'index'])
+.as('dependances.index')
+
+// Création des dépendances (retourne les données pour le tableau)
+router.get('/dependances/create', [DependancesController, 'create'])
+.as('dependances.create')
+
+// Enregistrement d'une nouvelle dépendance
+router.post('/dependances/store', [DependancesController, 'store'])
+.as('dependances.store')
+
+// Récupération des données pour l'édition
+router.get('/dependances/:id/edit', [DependancesController, 'edit'])
+.as('dependances.edit')
+
+// Mise à jour d'une dépendance
+router.post('/dependances/update', [DependancesController, 'update'])
+.as('dependances.update')
+
+// Suppression d'une dépendance
+router.post('/dependances/delete', [DependancesController, 'destroy'])
+.as('dependances.destroy')
+
 })
 .use(middleware.auth()) // Vérifie l'authentification
 .use(middleware.user()) // Vérifie si utilisateur normal
